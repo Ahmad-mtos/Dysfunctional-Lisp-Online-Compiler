@@ -1,11 +1,18 @@
 import './App.css';
-import CodeEditor from './components/CodeEditor/CodeEditor';
+import CodeEditor from './components/CodeEditor';
+import Editor from "@monaco-editor/react"
 function App() {
 
   return (
-    <CodeEditor>
-      
-    </CodeEditor>
+    <div>
+    <Editor
+      height="100vh"
+      width="100%"
+      theme="vs-dark"
+      defaultLanguage="python"
+    />
+    <CodeEditor/>
+    </div>
   );
 }
 
