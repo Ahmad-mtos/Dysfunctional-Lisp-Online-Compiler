@@ -1,1 +1,1 @@
-(prog (a ) a)
+(prog (a) (return (times a 3)))
