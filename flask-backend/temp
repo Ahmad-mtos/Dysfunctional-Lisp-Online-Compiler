@@ -1,5 +1,0 @@
-(func max (a b)
-    (cond (greater a b) a b))
-
-(prog ()
-    (max 5 6))

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./
+    command: gunicorn --workers=4 --bind 0.0.0.0:5000 app:app
+    ports:
+      - 5050:5000
+    environment:
+      - FLASK_APP=./app.py
+      - FLASK_DEBUG=0
+    volumes:
+      - ./:/app
