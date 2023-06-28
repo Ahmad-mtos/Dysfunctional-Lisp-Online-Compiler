@@ -1,18 +1,18 @@
-import './App.css';
+import React, { useState } from 'react';
 import CodeEditor from './components/CodeEditor';
-import Editor from "@monaco-editor/react"
-import MonacoEditor from './components/MonacoEditor';
+import MyMonacoEditor from './components/MyMonacoEditor';
+
 function App() {
+  const [code, setCode] = useState('');
+
+  const handleCodeChange = (newCode) => {
+    setCode(newCode);
+  };
 
   return (
     <div>
-    <MonacoEditor
-      height="100vh"
-      width="100%"
-      theme="vs-dark"
-      defaultLanguage="python"
-    />
-    <CodeEditor/>
+      <MyMonacoEditor onCodeChange={handleCodeChange} />
+      <CodeEditor code={code} />
     </div>
   );
 }

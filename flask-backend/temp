@@ -1,1 +1,5 @@
-(prog (a) (return (times a 3)))
+(func max (a b)
+    (cond (greater a b) a b))
+
+(prog (a b)
+    (max a b))
