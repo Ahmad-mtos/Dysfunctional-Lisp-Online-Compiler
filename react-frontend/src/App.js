@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import CodeEditor from './components/CodeEditor';
 import MyMonacoEditor from './components/MyMonacoEditor';
+import CodeSection from './components/CodeSection'
+import "./App.css"
 
 function App() {
   const [code, setCode] = useState('');
@@ -10,9 +12,8 @@ function App() {
   };
 
   return (
-    <div>
-      <MyMonacoEditor onCodeChange={handleCodeChange} />
-      <CodeEditor code={code} />
+    <div className='app'>
+      <CodeSection/>
     </div>
   );
 }

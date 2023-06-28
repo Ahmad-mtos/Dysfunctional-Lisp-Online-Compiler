@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.all{
+    display: flex;
+    background-color: #202028;
+    justify-content: center;
+    justify-self: right;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 30%;
+}
+
+.output{
+    background-color: #202028;
+    color: #eee8d5;
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 10px;
+}
+
+:where(.css-dev-only-do-not-override-12upa3x).ant-input-group .ant-input-group-addon{
+    color: #eee8d5;
+}
+
+:where(.css-dev-only-do-not-override-12upa3x).ant-btn-primary {
+    margin: 10px;
+    background-color: #068DA9;
+}

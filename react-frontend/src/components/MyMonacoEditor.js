@@ -1,13 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as monaco from 'monaco-editor';
 import MonacoEditor from 'react-monaco-editor';
 
 function registerCustomLanguage() {
-  monaco.languages.register({ id: 'customLanguage' });
+  monaco.languages.register({ id: 'dl' });
   let keywords = ['quote', 'setq', 'func', 'lambda', 'prog', 'cond', 'while', 'return', 'break'];
   let predefined = ['plus', 'minus', 'times', 'divide', 'head', 'tail', 'cons', 'equal', 'nonequal', 'less', 'lesseq', 'greater', 'greatereq', 'isint', 'isbool', 'isreal', 'isnull', 'isatom', 'islist', 'and', 'or', 'xor', 'not', 'eval', 'isempty'];
 
-  monaco.languages.setMonarchTokensProvider('customLanguage', {
+  monaco.languages.setMonarchTokensProvider('dl', {
     keywords,
     predefined,
     brackets: [
@@ -30,7 +30,7 @@ function registerCustomLanguage() {
     },
   });
 
-  monaco.editor.defineTheme('customLanguage-theme', {
+  monaco.editor.defineTheme('dl-theme', {
     base: 'vs-dark',
     inherit: true,
     rules: [
@@ -47,6 +47,7 @@ function registerCustomLanguage() {
       'editor.background': '#1E1E1E', // Set background color similar to VS Code
     },
   });
+  monaco.editor.setTheme('dl-theme');
   const config = {
     surroundingPairs: [
       { open: '(', close: ')' },
@@ -55,8 +56,8 @@ function registerCustomLanguage() {
       { open: '(', close: ')' },
     ],
   };
-  monaco.languages.setLanguageConfiguration('customLanguage', config);
-  monaco.languages.registerCompletionItemProvider('customLanguage', {
+  monaco.languages.setLanguageConfiguration('dl', config);
+  monaco.languages.registerCompletionItemProvider('dl', {
     provideCompletionItems: (model, position) => {
       const suggestions = [
         ...keywords.map((k) => ({
@@ -75,15 +76,32 @@ function registerCustomLanguage() {
   });
 }
 
-function MyMonacoEditor() {
-  registerCustomLanguage();
+function MyMonacoEditor(props) {
+
+  useEffect(() => {
+    registerCustomLanguage();
+  }, [])
+
+  const editorOptions = {
+    automaticLayout: true,
+    glyphMargin: false,
+    minimap: {
+      enabled: false,
+    },
+    renderLineHighlight: 'none',
+    overviewRulerLanes: 0,
+    gutters: [],
+  };
+  
   return (
     <MonacoEditor
-      language="customLanguage"
-      theme="customLanguage-theme"
+      language="dl"
+      theme="dl-theme"
       value=""
-      width="800"
-      height="600"
+      height="100%"
+      width="100%"
+      onChange={(e) => props.setCode(e)}
+      options={editorOptions}
     />
   );
 }
