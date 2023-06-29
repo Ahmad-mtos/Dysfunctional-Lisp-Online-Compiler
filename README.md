@@ -15,19 +15,27 @@ To run the project on a local machine, use one of these methods:
 
 1. Clone the repository:
 
-```git clone https://github.com/Ahmad-mtos/Dysfunctional-Lisp-Online-Compiler.git```
+```bash
+    git clone https://github.com/Ahmad-mtos/Dysfunctional-Lisp-Online-Compiler.git
+```
 
 2. Navigate to the project directory:
 
-```cd Dysfunctional-Lisp-Online-Compiler/```
+```bash
+    cd Dysfunctional-Lisp-Online-Compiler
+```
 
 3. Build the docker compose:
 
-```docker-compose build --no-cache``` 
+```bash
+    docker-compose build --no-cache 
+```
 
 4. Run the docker:
 
-```docker-compose up```
+```bash
+    docker-compose up
+```
 
 5. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
 
@@ -41,32 +49,46 @@ To run the project on a local machine, use one of these methods:
 
 1. Clone the repository:
 
-```git clone https://github.com/Ahmad-mtos/Dysfunctional-Lisp-Online-Compiler.git```
+```bash
+    git clone https://github.com/Ahmad-mtos/Dysfunctional-Lisp-Online-Compiler.git
+```
 
 2. Navigate to the backend directory:
 
-```cd Dysfunctional-Lisp-Online-Compiler/flask-backend```
+```bash
+    cd Dysfunctional-Lisp-Online-Compiler/flask-backend
+```
 
 3. Install the requirements:
 
-```pip install -r requirements.txt```
+```bash
+    pip install -r requirements.txt
+```
 
 4. Set the environment variable and start the Flask server: 
  - For Linux:
 
- ```export FLASK_RUN=app.py && flask run```
+```bash
+    export FLASK_RUN=app.py && flask run
+```
 
 5. navigate to the frontend directory:
 
-```cd ../frontend```
+```bash
+    cd ../frontend
+```
 
 6. Install the required dependencies:
 
-```npm install```
+```bash
+    npm install
+```
 
 7. Start the frontend development server:
 
-```npm start```
+```bash
+    npm start
+```
 
 8. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
 
