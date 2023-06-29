@@ -2,9 +2,42 @@
 
 Welcome to the Dysfunctional Lisp Online Compiler repository. This project serves as an extensive online documentation for <a href="https://github.com/thecarrot123/Compiler"> Dysfunctional Lisp </a>, providing a comprehensive platform to learn and explore the language. With the online compiler, you can test Dysfunctional Lisp code snippets directly in your web browser, facilitating a seamless and interactive learning experience.
 
-## How to Run
+# How to Run
 
-To run the project on a local machine, follow these steps:
+To run the project on a local machine, use one of these methods:
+
+## Using Docker
+
+> ### Requirements
+> 
+> - Docker version 20.10.21
+> - docker-compose version 1.29.2
+
+1. Clone the repository:
+
+```git clone https://github.com/Ahmad-mtos/Dysfunctional-Lisp-Online-Compiler.git```
+
+2. Navigate to the project directory:
+
+```cd Dysfunctional-Lisp-Online-Compiler/`
+
+3. Build the docker compose:
+
+```docker-compose build --no-cache``` 
+
+4. Run the docker:
+
+```docker-compose up```
+
+5. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
+
+## Manually
+
+> ### Requirements
+>
+> - npm 9.5.1
+> - Node v18.16.1
+> - Python 3.10.6
 
 1. Clone the repository:
 
@@ -12,32 +45,36 @@ To run the project on a local machine, follow these steps:
 
 2. Navigate to the backend directory:
 
-```cd Dysfunctional-Lisp-Online-Compiler/backend```
+```cd Dysfunctional-Lisp-Online-Compiler/flask-backend```
 
-3. Set the environment variable and start the Flask server: 
+3. Install the requirements:
+
+```pip install -r requirements.txt```
+
+4. Set the environment variable and start the Flask server: 
  - For Linux:
 
- ```export FLASK_RUN=test.py && flask run```
+ ```export FLASK_RUN=app.py && flask run```
 
-4. navigate to the frontend directory:
+5. navigate to the frontend directory:
 
 ```cd ../frontend```
 
-5. Install the required dependencies:
+6. Install the required dependencies:
 
 ```npm install```
 
-6. Start the frontend development server:
+7. Start the frontend development server:
 
 ```npm start```
 
-7. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
+8. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
 
-## Features
+# Features
 
 - An interactive compiler (at the bottom of the page)
 
-## Planned Features
+# Planned Features
 
 - A more appealing code editor
 - A full documentation of the language

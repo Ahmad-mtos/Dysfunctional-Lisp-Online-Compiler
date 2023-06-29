@@ -14,16 +14,19 @@ services:
   front:
     build: ./react-frontend
     volumes:
-      - ./react-frontend/:/app/
+      - react_volume:/app/build/
   nginx:
     image: nginx:latest
     ports:
       - 5050:5000
       - 5555:3000
     volumes:
-      - ./react-frontend/build/:/app/front/build/
+      - react_volume:/app/front/build/
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - back
       - front
+
+volumes:
+  react_volume:
