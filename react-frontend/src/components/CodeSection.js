@@ -12,7 +12,7 @@ const CodeSection = () => {
     const sendData = (code, params) => {
         const data = { message: code , params: params};
         
-        fetch('http://localhost:5000/api/data', {
+        fetch('http://localhost:5050/api/data', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

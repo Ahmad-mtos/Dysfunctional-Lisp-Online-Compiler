@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  back:
+    build: ./flask-backend
+    command: gunicorn --workers=4 --bind 0.0.0.0:5000 app:app
+    expose:
+      - 5000
+    environment:
+      - FLASK_APP=./app.py
+      - FLASK_DEBUG=0
+    volumes:
+      - ./flask-backend:/app
+  front:
+    build: ./react-frontend
+    volumes:
+      - ./react-frontend/:/app/
+  nginx:
+    image: nginx:latest
+    ports:
+      - 5050:5000
+      - 5555:3000
+    volumes:
+      - ./react-frontend/build/:/app/front/build/
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - back
+      - front
