@@ -19,7 +19,7 @@ To run the project on a local machine, use one of these methods:
 
 2. Navigate to the project directory:
 
-```cd Dysfunctional-Lisp-Online-Compiler/`
+```cd Dysfunctional-Lisp-Online-Compiler/```
 
 3. Build the docker compose:
 
