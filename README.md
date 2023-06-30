@@ -101,3 +101,4 @@ To run the project on a local machine, use one of these methods:
 - A more appealing code editor
 - A full documentation of the language
 - A deployed version of the project
+- A section where one can solve some problems 

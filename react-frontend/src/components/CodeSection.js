@@ -8,10 +8,12 @@ const CodeSection = () => {
     const [code, setCode] = useState('');
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
-    
+    const [loading, setLoading] = useState(false);
+
     const sendData = (code, params) => {
         const data = { message: code , params: params};
         
+        setLoading(true);
         fetch('http://localhost:5050/api/data', {
             method: 'POST',
             headers: {
@@ -22,6 +24,7 @@ const CodeSection = () => {
             .then(response => response.json())
             .then(responseData => {
             setOutput(responseData["message"])
+            setLoading(false);
             })
             .catch(error => {
             console.error(error);
@@ -30,8 +33,8 @@ const CodeSection = () => {
         
 
     const handleSubmit = (e) => {
-    e.preventDefault();
-    sendData(code, input);
+        e.preventDefault();
+        sendData(code, input);
     };
 
     return (
@@ -43,7 +46,7 @@ const CodeSection = () => {
                 placeholder="Input" 
                 onChange={(e) => setInput(e.target.value)} />
 
-            <Button onClick={handleSubmit} type="primary" htmlType="submit">
+            <Button onClick={handleSubmit} type="primary" loading={loading}>
                 Run
             </Button>
 

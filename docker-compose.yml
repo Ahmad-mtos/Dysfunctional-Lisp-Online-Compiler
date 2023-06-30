@@ -19,7 +19,7 @@ services:
     image: nginx:latest
     ports:
       - 5050:5000
-      - 5555:3000
+      - 3030:3000
     volumes:
       - react_volume:/app/front/build/
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
