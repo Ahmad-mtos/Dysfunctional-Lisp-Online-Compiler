@@ -1,3 +1,9 @@
 .app{
     display: flex;
+    width: 100%;
+}
+
+.doc{
+    width: 100%;
+    height: 100%;
 }
