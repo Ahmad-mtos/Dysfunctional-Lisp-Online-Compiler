@@ -24,11 +24,11 @@
     padding: 10px;
 }
 
-:where(.css-dev-only-do-not-override-12upa3x).ant-input-group .ant-input-group-addon{
+:where(.css-12upa3x).ant-input-group .ant-input-group-addon {
     color: #eee8d5;
 }
 
-:where(.css-dev-only-do-not-override-12upa3x).ant-btn-primary {
+:where(.css-12upa3x).ant-btn-primary {
     margin: 10px;
     background-color: #068DA9;
 }

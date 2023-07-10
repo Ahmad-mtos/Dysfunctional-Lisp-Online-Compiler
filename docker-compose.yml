@@ -2,7 +2,9 @@ version: '3'
 
 services:
   back:
+    container_name: dl_back
     build: ./flask-backend
+    image: dl_back
     command: gunicorn --workers=4 --bind 0.0.0.0:5000 app:app
     expose:
       - 5000
@@ -12,10 +14,13 @@ services:
     volumes:
       - ./flask-backend:/app
   front:
+    container_name: dl_front
     build: ./react-frontend
+    image: dl_front
     volumes:
       - react_volume:/app/build/
   nginx:
+    container_name: dl_nginx
     image: nginx:latest
     ports:
       - 5050:5000
