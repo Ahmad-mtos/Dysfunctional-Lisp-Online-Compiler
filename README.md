@@ -37,7 +37,7 @@ To run the project on a local machine, use one of these methods:
     docker-compose up
 ```
 
-5. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
+5. Open your web browser and visit http://localhost:3030 to access the Dysfunctional Lisp Online Compiler.
 
 ## Manually
 
@@ -90,7 +90,7 @@ To run the project on a local machine, use one of these methods:
     npm start
 ```
 
-8. Open your web browser and visit http://localhost:3030 to access the Dysfunctional Lisp Online Compiler.
+8. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
 
 # Features
 
