@@ -94,11 +94,12 @@ To run the project on a local machine, use one of these methods:
 
 # Features
 
-- An interactive compiler (at the bottom of the page)
+- An interactive compiler
+- An appealing code editor
 
 # Planned Features
 
-- A more appealing code editor
 - A full documentation of the language
 - A deployed version of the project
 - A section where one can solve some problems 
+- Add marcos to the language
