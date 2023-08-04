@@ -25,19 +25,13 @@ To run the project on a local machine, use one of these methods:
     cd Dysfunctional-Lisp-Online-Compiler
 ```
 
-3. Build the docker compose:
+3. Run deploy script:
 
 ```bash
-    docker-compose build --no-cache 
+    ./deploy.sh
 ```
 
-4. Run the docker:
-
-```bash
-    docker-compose up
-```
-
-5. Open your web browser and visit http://localhost:3030 to access the Dysfunctional Lisp Online Compiler.
+4. Open your web browser and visit http://localhost:3030 to access the Dysfunctional Lisp Online Compiler.
 
 ## Manually
 
@@ -72,25 +66,49 @@ To run the project on a local machine, use one of these methods:
     export FLASK_RUN=app.py && flask run
 ```
 
-5. navigate to the frontend directory:
+5. Install mkdocs requirments
+
+```bash
+    pip install mkdocs-pymdownx-material-extras
+```
+
+6. Navigate to the mkdocs
+
+```bash
+    cd ../mkdocs-documentation
+```
+
+7. Build documentation
+
+```bash
+    mkdocs build
+```
+
+8. Move the documentation to frontend public directory
+
+```bash
+    mv -f ./site ../react_frontend/public
+```
+
+9. Navigate to the frontend directory:
 
 ```bash
     cd ../frontend
 ```
 
-6. Install the required dependencies:
+10. Install the required dependencies:
 
 ```bash
     npm install
 ```
 
-7. Start the frontend development server:
+11. Start the frontend development server:
 
 ```bash
     npm start
 ```
 
-8. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
+12. Open your web browser and visit http://localhost:3000 to access the Dysfunctional Lisp Online Compiler.
 
 # Features
 
