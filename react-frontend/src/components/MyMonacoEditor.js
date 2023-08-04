@@ -5,7 +5,7 @@ import MonacoEditor from 'react-monaco-editor';
 function registerCustomLanguage() {
   monaco.languages.register({ id: 'dl' });
   let keywords = ['quote', 'setq', 'func', 'lambda', 'prog', 'cond', 'while', 'return', 'break'];
-  let predefined = ['plus', 'minus', 'times', 'divide', 'head', 'tail', 'cons', 'equal', 'nonequal', 'less', 'lesseq', 'greater', 'greatereq', 'isint', 'isbool', 'isreal', 'isnull', 'isatom', 'islist', 'and', 'or', 'xor', 'not', 'eval', 'isempty'];
+  let predefined = ['mod', 'plus', 'minus', 'times', 'divide', 'head', 'tail', 'cons', 'equal', 'nonequal', 'less', 'lesseq', 'greater', 'greatereq', 'isint', 'isbool', 'isreal', 'isnull', 'isatom', 'islist', 'and', 'or', 'xor', 'not', 'eval', 'isempty'];
 
   monaco.languages.setMonarchTokensProvider('dl', {
     keywords,
