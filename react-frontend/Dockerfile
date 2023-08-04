@@ -5,5 +5,4 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm install
 COPY . .
-RUN npm run build
-CMD echo 'Done!'
+CMD npm run build

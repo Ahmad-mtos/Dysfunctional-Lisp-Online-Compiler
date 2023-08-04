@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   back:
@@ -13,12 +13,25 @@ services:
       - FLASK_DEBUG=0
     volumes:
       - ./flask-backend:/app
+
+  docs:
+    container_name: dl_docs
+    build: ./mkdocs-documentation
+    image: dl_docs
+    volumes:
+      - docs_volume:/app/site/
+
   front:
     container_name: dl_front
     build: ./react-frontend
     image: dl_front
     volumes:
       - react_volume:/app/build/
+      - docs_volume:/app/public/site/
+    depends_on:
+      docs:
+        condition: service_completed_successfully
+
   nginx:
     container_name: dl_nginx
     image: nginx:latest
@@ -30,8 +43,11 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
-      - back
-      - front
+      back:
+        condition: service_started
+      front:
+        condition: service_completed_successfully
 
 volumes:
   react_volume:
+  docs_volume:

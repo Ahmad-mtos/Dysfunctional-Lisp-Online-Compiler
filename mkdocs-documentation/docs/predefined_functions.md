@@ -1,4 +1,4 @@
-# Predefined Funcs
+# Predefined Functions
 
 Predefined Functions are designed to execute specific actions on their provided arguments and subsequently yield an Element as a result. These functions are categorized into six distinct types:
 
@@ -152,6 +152,13 @@ The "cons" function requires two parameters. The first parameter should evaluate
 #### Definition
 
 The "isempty" function takes a single parameter. The parameter should evaluate to a **quoted** list. The function returns a Boolean denoting if the parameter list is empty.
+
+#### Examples
+
+```
+(isempty '()) // true
+(isempty '('())) // false
+```
 
 ## Comparison Functions
 
