@@ -4,7 +4,7 @@ Special Forms are lists that have special meanings. They start with a keyword th
 
 ## prog 
 
-```
+```no
 (prog Params Body)
 ```
 
@@ -22,7 +22,7 @@ The *prog* form should always be included in any program, and it should always b
 
 ### Examples
 
-```
+```no
 (prog (a b)
     (plus a b)
 )
@@ -30,7 +30,7 @@ The *prog* form should always be included in any program, and it should always b
 
 this is a program that asks for 2 inputs, *a* and *b*, then returns their sum using the predefined function *plus*.
 
-```
+```no
 (prog (a b)
     (minus a b)
     (plus a b)
@@ -41,7 +41,7 @@ This code behaves the same as the previous one, since the last statment is the *
 
 ## func
 
-```python
+```no
 (func Atom Params Body)
 ```
 
@@ -59,7 +59,7 @@ The Body parameter of the form is considered as the body of the function, contai
 
 ### Examples
 
-```json
+```no
 (func sum3 (a b c)
     (plus (plus a b) c)
 )
@@ -76,13 +76,13 @@ Notice how the parameters are spread and not in a list when calling the *sum3* f
 
 ## quote
 
-```json
+```no
 (quote List)
 ```
 
 or
 
-```
+```no
 `List
 ```
 
@@ -98,7 +98,7 @@ To evaluate a quoted list, we can simply use the special form *eval*. The conten
 
 ### Examples
 
-```json
+```no
 (prog ()
     (head '(1 2 3))
 )
@@ -106,7 +106,7 @@ To evaluate a quoted list, we can simply use the special form *eval*. The conten
 
 Returns: 1
 
-```json
+```no
 (prog ()
     (tail (quote (1 2 3)))
 )
@@ -118,7 +118,7 @@ Returns: '(2 3)
 
 ## setq
 
-```
+```no
 (setq Atom Element)
 ```
 
@@ -134,7 +134,7 @@ The Element paremeter gets evaluated, and the value it returns is assigned to th
 
 ### Examples
 
-```json
+```no
 (prog ()
     (setq x 5)
     (setq x (plus 10 5))
@@ -145,7 +145,7 @@ In this code first we define the variable *x* with the value 5, then we assign i
 
 ## cond
 
-```json
+```no
 (cond Element Element [Element])
 ```
 
@@ -163,7 +163,7 @@ The third Element parameter is an optional parameter which is going to be evalua
 
 ### Examples
 
-```json
+```no
 (prog (flag a b) 
     (cond (greater flag 5) (plus a b) (minus a b))
 )
@@ -173,7 +173,7 @@ This code requires 3 inputs, if the first input was greater than 5, then it retu
 
 ## while
 
-```json
+```no
 (while Element Body)
 ```
 
@@ -189,7 +189,7 @@ The Body parameter represents the body of the *while* form, which is a sequence 
 
 ### Examples
 
-```json
+```no
 (prog ()
     (setq i 1)
     (setq sum 0)
@@ -201,13 +201,13 @@ The Body parameter represents the body of the *while* form, which is a sequence 
 )
 ```
 
-Returns: 55
+Returns: 45
 
 This is a simple code where we sum the numbers from 1 to 10.
 
 ## lambda
 
-```json
+```no
 (lambda Params Body)
 ```
 
@@ -223,7 +223,7 @@ The Body parameter is considered as the body of the lambda function, containing 
 
 ### Examples
 
-```json
+```no
 (func map (lst f)
     (cond (isempty lst) (return '()))
     (cons (f (head lst)) (map (tail lst) f))
@@ -239,7 +239,7 @@ Returns: ```'(1 4 9 16)```
 
 ## return
 
-```json
+```no
 (return Element)
 ```
 
@@ -255,7 +255,7 @@ The Element parameter gets evaluated and returned.
 
 ### Examples
 
-```json
+```no
 (prog ()
     (return 5)
     10
@@ -266,7 +266,7 @@ Returns: 5
 
 ## break
 
-```
+```no
 (break)
 ```
 
@@ -279,7 +279,7 @@ execution of the nearest *while* form.
 
 ### Examples
 
-```json
+```no
 (prog ()
     (setq i 0)
     (while true

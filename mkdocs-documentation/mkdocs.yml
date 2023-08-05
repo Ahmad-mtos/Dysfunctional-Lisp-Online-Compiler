@@ -11,7 +11,9 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-    - 'Introduction': [Description: index.md, Syntax: syntax.md]
+    - 'Introduction': [Description: index.md]
+    - 'Syntax': [Abstract: syntax_abstract.md, Grammar: syntax_grammar.md]
+    - 'Tutorial': [Get Started: get_started.md]
     - 'Language': [Special Forms: special_forms.md, Predefined Functions: predefined_functions.md]
 
 theme:
