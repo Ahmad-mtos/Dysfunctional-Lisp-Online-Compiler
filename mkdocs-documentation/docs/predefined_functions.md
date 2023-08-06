@@ -2,12 +2,12 @@
 
 Predefined Functions are designed to execute specific actions on their provided arguments and subsequently yield an Element as a result. These functions are categorized into six distinct types:
 
-- Arithmetic functions: plus, minus, times, divide.
-- Operations on lists: head, tail, cons, isempty.
-- Comparison functions: equal, nonequal, less, lesseq, greater, greatereq.
-- Predicates: isint, isreal, isbool, isnull.
-- Logical operators: and, or, xor, not.
-- Evaluator: eval.
+- Arithmetic Functions: plus, minus, times, divide, mod.
+- Lists Functions: head, tail, cons, isempty.
+- Comparison Functions: equal, nonequal, less, lesseq, greater, greatereq.
+- Predicate Functions: isint, isreal, isbool, isnull.
+- Logical Functions: and, or, xor, not.
+- Evaluation Functions: eval.
 
 ## Arithmetic Functions
 
@@ -83,6 +83,24 @@ The **divide** function is designed to perform division on two parameters and re
 (divide 5 2) // returns 2
 (divide (plus 1 5) -1) // returns -5
 (divide 1 1.0) // returns 1.000000
+```
+
+### mod
+
+```
+(mod param1 param2)
+```
+
+#### Definition
+
+The **mod** function is designed to perform division on two parameters and return the remaining of dividing param1 on param2. Both parameters are expected to evaluate as Integer. The function will return the result as an Integer.
+
+#### Examples
+
+```
+(mod 5 2) // returns 1
+(mod (plus 1 5) -1) // returns 0
+(mod 1 1.0) // error
 ```
 
 ## List Functions
@@ -162,7 +180,7 @@ The "isempty" function takes a single parameter. The parameter should evaluate t
 
 ## Comparison Functions
 
-Comparison Functions are essential operations for evaluating Real or Integer values. These functions take two parameters, both of which should be Literal of the same type, and returns a Boolean.
+Comparison Functions are essential operations for evaluating Literal values. These functions take two parameters, both of which should evaluate to a Literal of the same type, and returns a Boolean.
 
 ### equal
 
@@ -276,4 +294,182 @@ The "greatereq" function requires two parameters. Both parameters evaluate to Li
 (greatereq false true) // returns false
 (greatereq null null) // return true
 (greatereq 1 1.0) // error
+```
+
+## Predicate Functions
+
+Predicate Functions are essential operations for evaluating the type of a Literal. These functions take one parameter and returns a Boolean.
+
+### isint
+
+```
+(isint param1)
+```
+
+#### Definition
+
+the "isint" function require a single parameter. The function will return True if the parameter evaluates to an Integer.
+
+#### Examples
+
+```
+(isint 1) // returns true
+(isint 1.0) // returns false
+(isint true) // returns false
+(isint null) // returns false
+```
+
+### isreal
+
+```
+(isreal param1)
+```
+
+#### Definition
+
+the "isreal" function require a single parameter. The function will return True if the parameter evaluates to a Real.
+
+#### Examples
+
+```
+(isreal 1) // returns false
+(isreal 1.0) // returns true
+(isreal true) // returns false
+(isreal null) // returns false
+```
+
+### isbool
+
+```
+(isbool param1)
+```
+
+#### Definition
+
+the "isbool" function require a single parameter. The function will return True if the parameter evaluates to a Boolean.
+
+#### Examples
+
+```
+(isbool 1) // returns false
+(isbool 1.0) // returns false
+(isbool true) // returns true
+(isbool null) // returns false
+```
+
+### isnull
+
+```
+(isnull param1)
+```
+
+#### Definition
+
+the "isnull" function require a single parameter. The function will return True if the parameter evaluates to a null.
+
+#### Examples
+
+```
+(isnull 1) // returns false
+(isnull 1.0) // returns false
+(isnull true) // returns false
+(isnull null) // returns true
+```
+
+## Logical Functions
+
+Logical Functions are essential operations for Booleans. These functions take parameters, which should evaluate to a Boolean, and returns a Boolean.
+
+### and
+
+```
+(and param1 param2)
+```
+
+#### Definition
+
+The "and" function requires two parameters, both parameters should evaluate to a Boolean. The function returns a Boolean denoting the result of the "and" operation on the parameters.
+
+#### Examples
+
+```
+(and true true) // returns true
+(and true false) // returns false
+(and true 1) // error
+```
+
+### or
+
+```
+(or param1 param2)
+```
+
+#### Definition
+
+The "or" function requires two parameters, both parameters should evaluate to a Boolean. The function returns a Boolean denoting the result of the "or" operation on the parameters.
+
+#### Examples
+
+```
+(or true true) // returns true
+(or true false) // returns true
+(or true 1) // error
+```
+
+### xor
+
+```
+(xor param1 param2)
+```
+
+#### Definition
+
+The "xor" function requires two parameters, both parameters should evaluate to a Boolean. The function returns a Boolean denoting the result of the "xor" operation on the parameters.
+
+#### Examples
+
+```
+(xor true true) // returns false
+(xor true false) // returns true
+(xor true 1) // error
+```
+
+### not
+
+```
+(not param1 param2)
+```
+
+#### Definition
+
+The "not" function requires a single parameter, that should evaluate to a Boolean. The function returns a Boolean denoting the result of the "not" operation on the parameter.
+
+#### Examples
+
+```
+(not true) // returns false
+(not false) // returns true
+(not 1) // error
+```
+
+## Evaluation Function
+
+Evaluation Functions are essential to evaluate quoted lists.
+
+### eval
+
+```
+(eval param1)
+```
+
+#### Definition
+
+The "eval" function requires a single parameter, that should evaluates to a quoted list. The function will unquote the parameter and returns the result of the evaluation of the list.
+
+#### Example
+
+```
+(eval '(plus 1 3))  // returns 4
+(eval '(1 3)) // return (1 3)
+(eval (plus 1 3)) // error
 ```
