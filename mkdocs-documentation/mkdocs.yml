@@ -13,7 +13,7 @@ markdown_extensions:
 nav:
     - 'Introduction': [Description: index.md]
     - 'Syntax': [Abstract: syntax_abstract.md, Grammar: syntax_grammar.md]
-    - 'Tutorial': [Get Started: get_started.md]
+    - 'Tutorial': [Get Started: get_started.md, LCM Calculator: lcm_list.md]
     - 'Language': [Special Forms: special_forms.md, Predefined Functions: predefined_functions.md]
 
 theme:
