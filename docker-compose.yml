@@ -25,6 +25,8 @@ services:
     container_name: dl_front
     build: ./react-frontend
     image: dl_front
+    environment: 
+      - VITE_BASE_URL
     volumes:
       - react_volume:/app/dist/
       - docs_volume:/app/site/

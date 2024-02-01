@@ -4,17 +4,19 @@ import MyMonacoEditor from './MyMonacoEditor';
 import { useState } from 'react';
 import '../css/CodeSection.css'
 
+
 const CodeSection = () => {
     const [code, setCode] = useState('');
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
     const [loading, setLoading] = useState(false);
+    const base_url = import.meta.env.VITE_BASE_URL;
 
     const sendData = (code, params) => {
         const data = { message: code , params: params};
         
         setLoading(true);
-        fetch('http://localhost:5050/api/data', {
+        fetch(base_url + "api/data", {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
