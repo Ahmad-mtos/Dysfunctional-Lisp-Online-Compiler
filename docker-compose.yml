@@ -26,8 +26,8 @@ services:
     build: ./react-frontend
     image: dl_front
     volumes:
-      - react_volume:/app/build/
-      - docs_volume:/app/public/site/
+      - react_volume:/app/dist/
+      - docs_volume:/app/site/
     depends_on:
       docs:
         condition: service_completed_successfully
@@ -39,7 +39,8 @@ services:
       - 5050:5000
       - 3030:3000
     volumes:
-      - react_volume:/app/front/build/
+      - react_volume:/app/front/dist/
+      - docs_volume:/app/front/dist/site/
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
