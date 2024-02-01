@@ -21,7 +21,8 @@ const CodeSection = () => {
             headers: {
             'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data).replace(/\\r/g, ''),
+        
         })
             .then(response => response.json())
             .then(responseData => {
