@@ -22,7 +22,7 @@ def post_data():
     filename = str(uuid.uuid4().hex)
     os.system(f'echo "{code}" > {filename}')
 
-    MAX_TIMEOUT = 4
+    MAX_TIMEOUT = 0.5
     task = threading.Thread(target=run_prog, args=(filename, params))
     task.start()
     task.join(timeout=MAX_TIMEOUT)
