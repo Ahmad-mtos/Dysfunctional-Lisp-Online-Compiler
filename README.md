@@ -1,6 +1,6 @@
 # Dysfunctional Lisp Online Compiler
 
-Welcome to the Dysfunctional Lisp Online Compiler repository. This project serves as an extensive online documentation for <a href="https://github.com/thecarrot123/Compiler"> Dysfunctional Lisp </a>, providing a comprehensive platform to learn and explore the language. With the online compiler, you can test Dysfunctional Lisp code snippets directly in your web browser, facilitating a seamless and interactive learning experience.
+Welcome to the Dysfunctional Lisp Online Compiler repository. This project serves as an extensive online documentation for [Dysfunctional Lisp](https://github.com/thecarrot123/Compiler), providing a comprehensive platform to learn and explore the language. With the online compiler, you can test Dysfunctional Lisp code snippets directly in your web browser, facilitating a seamless and interactive learning experience. 
 
 # How to Run
 
