@@ -43,9 +43,5 @@ def post_data():
     response = {'message': f'{output}'}
     return jsonify(response)
 
-@app.route('/', methods=['GET'])
-def home():
-    return "<h1> Welcome to flask server! </h1>"
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
