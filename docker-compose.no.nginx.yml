@@ -19,7 +19,10 @@ services:
     build: ./mkdocs-documentation
     image: dl_docs
     volumes:
-      - docs_volume:/app/site/
+      - /var/www/html/dysfunctional-lisp.tech/site:/app/site/
+    depends_on:
+      front:
+        condition: service_completed_successfully
 
   front:
     container_name: dl_front
@@ -27,10 +30,7 @@ services:
     image: dl_front
     volumes:
       - /var/www/html/dysfunctional-lisp.tech:/app/dist/
-      - docs_volume:/app/site/
-    depends_on:
-      docs:
-        condition: service_completed_successfully
+    
 
 volumes:
   docs_volume:
