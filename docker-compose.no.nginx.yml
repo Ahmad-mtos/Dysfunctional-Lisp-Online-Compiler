@@ -26,8 +26,8 @@ services:
     build: ./react-frontend
     image: dl_front
     volumes:
-      - /var/www/html/dysfunctional-lisp.tech:/app/build/
-      - docs_volume:/app/public/site/
+      - /var/www/html/dysfunctional-lisp.tech:/app/dist/
+      - docs_volume:/app/site/
     depends_on:
       docs:
         condition: service_completed_successfully
