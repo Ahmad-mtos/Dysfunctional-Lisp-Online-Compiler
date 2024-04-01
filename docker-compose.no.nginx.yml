@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  back:
+    container_name: dl_back
+    build: ./flask-backend
+    image: dl_back
+    command: gunicorn --workers=4 --bind 0.0.0.0:5000 app:app
+    ports:
+      - 5000:5000
+    environment:
+      - FLASK_APP=./app.py
+      - FLASK_DEBUG=0
+    volumes:
+      - ./flask-backend:/app
+
+  docs:
+    container_name: dl_docs
+    build: ./mkdocs-documentation
+    image: dl_docs
+    volumes:
+      - docs_volume:/app/site/
+
+  front:
+    container_name: dl_front
+    build: ./react-frontend
+    image: dl_front
+    volumes:
+      - /var/www/html/dysfunctional-lisp.tech:/app/build/
+      - docs_volume:/app/public/site/
+    depends_on:
+      docs:
+        condition: service_completed_successfully
+
+volumes:
+  docs_volume:
